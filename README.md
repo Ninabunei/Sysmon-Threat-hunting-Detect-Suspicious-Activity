@@ -14,4 +14,14 @@ I'll be using sysmon in a VM to detect suspicious activity
     c) Go to event viewer - applications and service logs - microsoft - windows- sysmon- operational and look out for event ID 1
     you should see the ping event id 1 with a parent image of cmd.exe
  2. SIMULATION 2: NETWORK CONNECTION FROM POWERSHELL
+    a) Open PowerShell as an administrator
+    b) Run : <pre><code> Invoke-WebRequest -Uri http://testphp.vulnweb.com </code></pre>
+    This tries to connect to a test website used for learning security.
+    N/B: You are not downloading malware, just simulating network traffic
+    c) In event viewer, look for event ID 3 it will indicate
+       image: powershell.exe
+       DestinationIP: IP of the website
+       DestinationPort: 80
+       Protocol: TCP
+  
     
